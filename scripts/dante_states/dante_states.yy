@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"dante_states",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"dante_states",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
