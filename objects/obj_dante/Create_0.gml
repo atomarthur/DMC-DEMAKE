@@ -26,6 +26,7 @@ combo_end_cooldown = 0;
 combo_end_cooldown_max = 30;
 
 grv = 0.3;
+helm_breaker_force = 0.6;
 
 combo_counter = 1;
 

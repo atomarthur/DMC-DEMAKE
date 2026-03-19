@@ -10,6 +10,33 @@ function state_attack()
 	}
 }	
 
+function state_air_attack()
+{
+	var _ground = place_meeting(x, y + 1, par_wall);
+	
+	if (_ground)
+	{
+		state = state_free;
+	}
+	
+	else
+	{
+		sprite_index = spr_dante_air_attack;
+		image_speed = 1;
+	
+		if (image_index >= image_number-1)
+		{
+			
+		image_speed = 0;
+		}	
+		
+		vspd += helm_breaker_force;
+		
+	}
+	
+
+}	
+
 function state_free()
 {
 	
@@ -83,20 +110,31 @@ function state_free()
 		combo_end_cooldown = combo_end_cooldown_max;
 	}
 
-	if (_attack and atk_cooldown <= 0 and combo_end_cooldown <= 0 and _ground)
+	if (_attack and atk_cooldown <= 0 and combo_end_cooldown <= 0)
 	{
 		
-		if (combo_reset <= 0)
+		if (!_ground)
 		{
-			combo_counter = 1;		
+			hspd = 0;
+			vspd = 0;
+			state = state_air_attack;	
 		}
 		
-		hspd = 0;
+		else
+		{
 		
-		atk_cooldown = atk_cooldown_max;
-		combo_reset = combo_reset_max;
+			if (combo_reset <= 0)
+			{
+				combo_counter = 1;		
+			}
 		
-		state = state_attack;
+			hspd = 0;
+		
+			atk_cooldown = atk_cooldown_max;
+			combo_reset = combo_reset_max;
+		
+			state = state_attack;
+		}
 	}
 	
 	atk_cooldown--;
@@ -145,5 +183,6 @@ function state_free()
 	#endregion
 	
 }
+
 
 
