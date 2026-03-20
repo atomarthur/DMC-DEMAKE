@@ -17,7 +17,7 @@ acc = 0.6;
 dcc = 1.4;
 
 atk_cooldown = 0;
-atk_cooldown_max = 8;
+atk_cooldown_max = 1;
 
 combo_reset = 0;
 combo_reset_max = 22;
@@ -26,7 +26,7 @@ combo_end_cooldown = 0;
 combo_end_cooldown_max = 30;
 
 grv = 0.3;
-helm_breaker_force = 0.6;
+helm_breaker_force = 0.8;
 
 combo_counter = 1;
 

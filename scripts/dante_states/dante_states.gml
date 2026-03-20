@@ -23,14 +23,23 @@ function state_air_attack()
 	{
 		sprite_index = spr_dante_air_attack;
 		image_speed = 1;
-	
-		if (image_index >= image_number-1)
-		{
-			
-		image_speed = 0;
-		}	
 		
-		vspd += helm_breaker_force;
+		if (image_index <= 2) 
+		{
+			vspd = 0;	
+		}
+		
+		else
+		{
+		
+			if (image_index >= image_number-1)
+			{
+			image_speed = 0;
+			}	
+			vspd += helm_breaker_force;
+		}
+		
+		
 		
 	}
 	
@@ -75,6 +84,7 @@ function state_free()
 	hspd = lengthdir_x(spd, dir);
 	
 	// Jump
+	
 	if (_ground)
 	{
 		jump = false;	
@@ -129,10 +139,12 @@ function state_free()
 			}
 		
 			hspd = 0;
+			spd = 0;
 		
 			atk_cooldown = atk_cooldown_max;
 			combo_reset = combo_reset_max;
-		
+			
+			image_index = 0;
 			state = state_attack;
 		}
 	}

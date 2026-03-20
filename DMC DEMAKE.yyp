@@ -10,8 +10,8 @@
   },
   "defaultScriptType":1,
   "Folders":[
-    {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
@@ -24,11 +24,13 @@
   },
   "name":"DMC DEMAKE",
   "resources":[
+    {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_dante","path":"objects/obj_dante/obj_dante.yy",},},
     {"id":{"name":"par_wall","path":"objects/par_wall/par_wall.yy",},},
-    {"id":{"name":"test_chambers","path":"rooms/test_chambers/test_chambers.yy",},},
+    {"id":{"name":"Office","path":"rooms/Office/Office.yy",},},
     {"id":{"name":"approach","path":"scripts/approach/approach.yy",},},
     {"id":{"name":"dante_states","path":"scripts/dante_states/dante_states.yy",},},
+    {"id":{"name":"macros","path":"scripts/macros/macros.yy",},},
     {"id":{"name":"styles","path":"scripts/styles/styles.yy",},},
     {"id":{"name":"spr_dante_air_attack","path":"sprites/spr_dante_air_attack/spr_dante_air_attack.yy",},},
     {"id":{"name":"spr_dante_combo_1","path":"sprites/spr_dante_combo_1/spr_dante_combo_1.yy",},},
@@ -43,7 +45,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"test_chambers","path":"rooms/test_chambers/test_chambers.yy",},},
+    {"roomId":{"name":"Office","path":"rooms/Office/Office.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
