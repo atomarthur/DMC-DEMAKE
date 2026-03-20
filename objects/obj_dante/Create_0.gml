@@ -27,6 +27,8 @@ combo_end_cooldown_max = 30;
 
 grv = 0.3;
 helm_breaker_force = 0.8;
+ground_stop_time = 0;
+ground_stop_time_max = 9;
 
 combo_counter = 1;
 

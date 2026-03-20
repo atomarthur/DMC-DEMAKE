@@ -7,6 +7,12 @@ if(instance_exists(global.view_target))
 	x_to = clamp(x_to,0,room_width - VIEW_WIDTH);
 	y_to = clamp(y_to,0,room_height - VIEW_HEIGHT);
 	
+	if (shake_length != 0)
+	{
+		x_to += random_range(-shake_length, shake_length);
+		y_to += random_range(-shake_length, shake_length);
+	}
+	
 	var c_x = camera_get_view_x(view_camera[VIEW]);
 	var c_y = camera_get_view_y(view_camera[VIEW]);
 	
@@ -15,4 +21,4 @@ if(instance_exists(global.view_target))
 	
 	camera_set_view_pos(view_camera[VIEW],n_x,n_y);
 }
-	
+

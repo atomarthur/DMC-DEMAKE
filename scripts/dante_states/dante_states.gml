@@ -16,7 +16,15 @@ function state_air_attack()
 	
 	if (_ground)
 	{
-		state = state_free;
+		image_index = image_number-1;
+		screen_shake(12, 12);
+		ground_stop_time--;
+		
+		if (ground_stop_time <= 0)
+		{
+			state = state_free;
+		}
+			
 	}
 	
 	else
@@ -39,10 +47,7 @@ function state_air_attack()
 			vspd += helm_breaker_force;
 		}
 		
-		
-		
 	}
-	
 
 }	
 
@@ -55,7 +60,8 @@ function state_free()
 	var _left = keyboard_check(vk_left);
 	var _jump = keyboard_check_pressed(ord("Z"));
 	var _jump_down = keyboard_check(ord("Z"));
-	var _style = keyboard_check(vk_shift);
+	var _style = keyboard_check_pressed(vk_shift);
+	var _attack = keyboard_check_pressed(ord("X"));
 	
 	var _move = (_right - _left);
 	var _ground = place_meeting(x, y + 1, par_wall);
@@ -111,8 +117,6 @@ function state_free()
 	#region Abilities
 	
 	// Attack
-
-	var _attack = keyboard_check_pressed(ord("X"));
 	
 	if (combo_counter > 3)
 	{
@@ -127,25 +131,32 @@ function state_free()
 		{
 			hspd = 0;
 			vspd = 0;
+			ground_stop_time = ground_stop_time_max;
 			state = state_air_attack;	
 		}
 		
 		else
-		{
-		
-			if (combo_reset <= 0)
+		{		
+			if (!_jump_down)
 			{
-				combo_counter = 1;		
+				
+				if (combo_reset <= 0)
+				{
+					combo_counter = 1;		
+				}
+		
+				hspd = 0;
+				spd = 0;
+		
+				atk_cooldown = atk_cooldown_max;
+				combo_reset = combo_reset_max;
+			
+				image_index = 0;
+				state = state_attack;	
+				
 			}
 		
-			hspd = 0;
-			spd = 0;
-		
-			atk_cooldown = atk_cooldown_max;
-			combo_reset = combo_reset_max;
-			
-			image_index = 0;
-			state = state_attack;
+
 		}
 	}
 	
