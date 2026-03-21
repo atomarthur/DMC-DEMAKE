@@ -6,8 +6,46 @@ enum STYLES
 	GUNSLINGER
 }
 
+global.styles_struct = 
+{
+	
+	trickster: 
+	{
+		name: "Trickster",
+		use: function(_player, _direction)
+		{
+			
+			switch (_direction) 
+			{
+			    case 0:
+					_player.dash_time = 0;
+			        _player.state = state_trickster_neutral
+			        break;
+				case 1:
+					
+			        break;
+					
+				case -1:
+			        // code here
+			        break;
+					
+			    default:
+			        // code here
+			        break;
+					
+			}
+			
+		}
+	},
+	
+	swordmaster: {},
+	royalguard: {},
+	gunslinger: {}
+	
+}
 
-function state_trickster()
+
+function state_trickster_neutral()
 {
 	
 	hspd = lengthdir_x(dash_force, dir);
@@ -17,8 +55,8 @@ function state_trickster()
 	if (dash_time >= dash_distance)
 	{
 		state = state_free;	
-	}
-	
+	}		
+
 }
 
 function state_swordmaster()

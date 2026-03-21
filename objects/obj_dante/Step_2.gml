@@ -25,6 +25,8 @@ repeat(abs(vspd))
 	
 }
 
+show_debug_message(dash_time)
+
 
 
 

@@ -58,8 +58,12 @@ function state_free()
 
 	var _right = keyboard_check(vk_right);
 	var _left = keyboard_check(vk_left);
+	var _up = keyboard_check(vk_up);
+	var _down = keyboard_check(vk_down);
+	
 	var _jump = keyboard_check_pressed(ord("Z"));
 	var _jump_down = keyboard_check(ord("Z"));
+	
 	var _style = keyboard_check_pressed(vk_shift);
 	var _attack = keyboard_check_pressed(ord("X"));
 	
@@ -155,7 +159,6 @@ function state_free()
 				state = state_attack;	
 				
 			}
-		
 
 		}
 	}
@@ -168,39 +171,14 @@ function state_free()
 	
 	if (_style and style_cooldown <=0)
 	{
-		
 		vspd = 0;
 		hspd = 0;
 		
 		style_cooldown = style_cooldown_max;
 		
-		switch (current_style) 
-		{
-		    case STYLES.TRICKSTER:
-				dash_time = 0;
-		        state = state_trickster;
-		        break;
-				
-			 case STYLES.SWORDMASTER:
-		        // code here
-		        break;
-				
-			 case STYLES.ROYALGUARD:
-		        // code here
-		        break;
-				
-			 case STYLES.GUNSLINGER:
-		        // code here
-		        break;
-				
-			default:
-		        // code here
-		        break;
-		}
-		
-		
+		current_style.use(self, _up - _down);
 	}
-	
+		
 	style_cooldown --;
 	
 	#endregion

@@ -1,6 +1,6 @@
 depth = -100;
 
-current_style = STYLES.TRICKSTER;
+current_style = global.styles_struct.trickster;
 
 dir = 0;
 hspd = 0;
