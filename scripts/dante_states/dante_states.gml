@@ -51,6 +51,45 @@ function state_air_attack()
 
 }	
 
+function state_stinger()
+{
+		
+	if (stinger_time >= stinger_distance)
+	{
+		
+		hspd = 0;
+		
+		sprite_index = spr_dante_thrust;
+		image_speed = 1;
+		
+		if (image_index >= image_number-1)
+		{
+			image_index = image_number-1;
+		}
+		
+		
+		screen_shake(8, 8);
+		
+		stinger_stop_time--;
+		
+		if (stinger_stop_time <= 0)
+		{
+			state = state_free;		
+		}	
+	}
+	
+	else
+	{
+		sprite_index = spr_dante_stinger;
+	
+		hspd = lengthdir_x(stinger_force, dir);
+	
+		stinger_time = approach(stinger_time, stinger_distance, 1)
+	}
+	
+	
+}
+
 function state_free()
 {
 	
@@ -151,12 +190,32 @@ function state_free()
 		
 				hspd = 0;
 				spd = 0;
-		
-				atk_cooldown = atk_cooldown_max;
-				combo_reset = combo_reset_max;
+				
+				switch (_up - _down) {
+				    case 1:
+						if (stinger_cooldown <= 0)
+						{
+							stinger_time = 0;
+							stinger_cooldown = stinger_cooldown_max;
+							stinger_stop_time = stinger_stop_time_max;
+					        state = state_stinger;
+						}
+				        break;
+
+					 case -1:
+				        // code here
+				        break;
+						
+					default:
+						atk_cooldown = atk_cooldown_max;
+						combo_reset = combo_reset_max;
 			
-				image_index = 0;
-				state = state_attack;	
+						image_index = 0;
+						state = state_attack;
+						break;
+				}
+				
+				
 				
 			}
 
@@ -166,6 +225,7 @@ function state_free()
 	atk_cooldown--;
 	combo_reset--;
 	combo_end_cooldown--;
+	stinger_cooldown --;
 	
 	// Style
 	

@@ -15,6 +15,9 @@ spd = 0;
 spd_max = 1.0;
 acc = 0.6;
 dcc = 1.4;
+grv = 0.3;
+
+#region Attacks
 
 atk_cooldown = 0;
 atk_cooldown_max = 1;
@@ -25,12 +28,26 @@ combo_reset_max = 22;
 combo_end_cooldown = 0;
 combo_end_cooldown_max = 30;
 
-grv = 0.3;
+
 helm_breaker_force = 0.8;
 ground_stop_time = 0;
 ground_stop_time_max = 9;
 
 combo_counter = 1;
+
+// Stinger
+
+stinger_cooldown = 0;
+stinger_cooldown_max = 20;
+
+stinger_distance = 10;
+stinger_time = 8;
+stinger_force = 6;
+
+stinger_stop_time = 0;
+stinger_stop_time_max = 12;
+
+#endregion
 
 #region Styles
 

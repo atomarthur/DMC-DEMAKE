@@ -48,6 +48,8 @@ global.styles_struct =
 function state_trickster_neutral()
 {
 	
+	sprite_index = spr_dante_dash;
+	
 	hspd = lengthdir_x(dash_force, dir);
 	
 	dash_time = approach(dash_time, dash_distance, 1)

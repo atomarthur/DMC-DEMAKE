@@ -23,7 +23,7 @@
   ],
   "name":"spr_dante_idle",
   "nineSlice":null,
-  "origin":7,
+  "origin":9,
   "parent":{
     "name":"Dante",
     "path":"folders/Sprites/Dante.yy",
@@ -75,7 +75,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":16,
+    "xorigin":17,
     "yorigin":32,
   },
   "swatchColours":null,
